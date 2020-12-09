@@ -6,6 +6,6 @@ import com.cg.optfs.entity.Parent;
 
 public interface ParentDAO {
 	public Parent addParent(Parent parent);
-	public Parent updateParent();
+	public Parent updateParent(Parent parent);
 	public List<Parent> viewAllParents();
 }
