@@ -3,6 +3,7 @@ package com.cg.optfs.presentation;
 import java.util.Scanner;
 
 import com.cg.optfs.entity.LoginInfo;
+import com.cg.optfs.entity.Parent;
 import com.cg.optfs.service.AdminAuthImplService;
 import com.cg.optfs.service.AdminAuthService;
 import com.cg.optfs.service.AdminService;
@@ -28,32 +29,49 @@ public class Main {
 			
 			
 			System.out.println("Enter the username:");
-			li.setUsername(sc.next());
-//			String username = sc.next();
+//			li.setUsername(sc.next());
+			String username = sc.next();
 			
 			System.out.println("Enter the password:");
-			li.setPassword(sc.next());
-//			String password = sc.next();
+//			li.setPassword(sc.next());
+			String password = sc.next();
 			
 //			boolean admin = aa.loginAdmin(username, password);
-			boolean admin = aa.loginAdmin(li);
-//			boolean res = as.loginAdmin(username, password);
-			System.out.println(admin);
+//			boolean admin = aa.loginAdmin(li);
+			boolean res = as.loginAdmin(username, password);
 			
-			  if(admin) { System.out.println("1. Register Tutor");
+//			System.out.println(res);
+			
+			  if(res)
+			  { 
+				  System.out.println("1. Register Tutor");
 			  System.out.println("2. View parents");
 			  System.out.println("Enter the choice number:");
 			  
-			  choice = sc.nextInt(); switch(choice) { case 1:
-			  
-			  System.out.println("Enter the tutor details:");
-			  
+			  choice = sc.nextInt(); 
+			  	switch(choice) 
+			  	{ 
+			  		case 1:
+//			  			Tutor tu = new Tutor();
+			  			
+			  			System.out.println("Enter tutor name: ");
+			  			
+				  
+			  			break;
+			  		case 2:
+			  			Parent p = new Parent();
+			  			
+			  			
+			  	}
 			  }
+			  else
+			  {
+				  System.out.println("Invalid credentials..");
 			  }
 			 
+			
+			
 			break;
-			
-			
 		}
 	}
 

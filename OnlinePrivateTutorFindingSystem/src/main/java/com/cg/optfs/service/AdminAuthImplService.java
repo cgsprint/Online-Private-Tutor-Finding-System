@@ -15,12 +15,12 @@ public class AdminAuthImplService implements AdminAuthService{
 		
 		
 //		return 
-		
-		  if(li.getUsername().equals("tejas") && li.getPassword().equals("tejas123")) {
-			  return true; 
-		  }
-		  
-		  return false;
+		/*
+		 * if(li.getUsername().equals("tejas") && li.getPassword().equals("tejas123")) {
+		 * return true; }
+		 **/ 
+		return false;
+		 
 		 
 	}
 

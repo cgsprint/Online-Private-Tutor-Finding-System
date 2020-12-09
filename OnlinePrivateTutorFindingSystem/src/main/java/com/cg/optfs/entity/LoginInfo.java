@@ -11,10 +11,14 @@ import javax.persistence.Table;
 @Table(name = "LOGIN_INFO")
 public class LoginInfo {
 	
-	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	@Column(name="ID")
-	private int id;
+	
+	  @Id
+	  
+	  @GeneratedValue(strategy= GenerationType.AUTO)
+	  
+	  @Column(name="ID")
+	  private int id;
+	 
 	
 	@Column(name = "USERNAME")
 	private String username;
