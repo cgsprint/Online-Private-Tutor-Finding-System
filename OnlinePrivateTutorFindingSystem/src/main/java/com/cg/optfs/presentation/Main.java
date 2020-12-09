@@ -1,5 +1,6 @@
 package com.cg.optfs.presentation;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.cg.optfs.entity.LoginInfo;
@@ -59,7 +60,11 @@ public class Main {
 				  
 			  			break;
 			  		case 2:
-			  			Parent p = new Parent();
+			  			System.out.println("Enter parent id");
+			  			int parentId = sc.nextInt();
+			  			
+			  			List<org.hibernate.annotations.Parent> lp = as.viewParent(parentId);
+			  			
 			  			
 			  			
 			  	}

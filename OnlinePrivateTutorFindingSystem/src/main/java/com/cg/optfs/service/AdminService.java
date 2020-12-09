@@ -1,8 +1,11 @@
 package com.cg.optfs.service;
 
-import com.cg.optfs.dao.Ebook;
-import com.cg.optfs.dao.Parent;
-import com.cg.optfs.dao.Tutor;
+import java.util.List;
+
+import org.hibernate.annotations.Parent;
+
+
+//import com.cg.optfs.entity.Parent;
 
 public interface AdminService {
 	
@@ -13,6 +16,6 @@ public interface AdminService {
 	 */
 	
 	public boolean loginAdmin(String username,String password);
-	
+	public List<Parent> viewParent(int parentId);
 	
 }
