@@ -6,10 +6,12 @@ import org.hibernate.annotations.Parent;
 
 public interface AdminDAO {
 	
-	public boolean manageTutor(Tutor tutor);
-	public List<Parent> viewParent(Parent parent);
-	public boolean manageEbooks(Ebook ebook);
-	
+	public boolean loginAdmin(String username,String password);
+	/*
+	 * public boolean manageTutor(Tutor tutor);
+	 * public List<Parent> viewParent(Parent parent);
+	 * public boolean manageEbooks(Ebook ebook);
+	 */
 	
 
 }

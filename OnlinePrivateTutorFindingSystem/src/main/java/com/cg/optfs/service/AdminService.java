@@ -6,10 +6,13 @@ import com.cg.optfs.dao.Tutor;
 
 public interface AdminService {
 	
-	public Tutor manageTutor(Tutor tutor);
-	public Parent viewParent(Parent parent);
-	public Ebook manageEbooks(Ebook ebook);
+	/*
+	 * public Tutor manageTutor(Tutor tutor); 
+	 * public Parent viewParent(Parent parent); 
+	 * public Ebook manageEbooks(Ebook ebook);
+	 */
+	
+	public boolean loginAdmin(String username,String password);
 	
 	
-
 }
