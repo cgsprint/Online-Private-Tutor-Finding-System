@@ -15,7 +15,7 @@ public class ParentDAOImpl implements ParentDAO {
 		manager= DbUtil.getConnection();
 	}
 	@Override
-	public Parent addParent() {
+	public Parent addParent(Parent parent) {
 		// TODO Auto-generated method stub
 		return null;
 	}

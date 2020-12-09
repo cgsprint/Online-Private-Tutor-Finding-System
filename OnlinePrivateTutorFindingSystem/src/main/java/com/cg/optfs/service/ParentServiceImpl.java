@@ -11,4 +11,20 @@ public class ParentServiceImpl implements ParentService {
 	public ParentServiceImpl() {
 		pdao=new ParentDAOImpl();
 	}
+	@Override
+	public Parent addParent(Parent parent) {
+		// TODO Auto-generated method stub
+		return pdao.addParent(parent);
+	}
+	@Override
+	public Parent updateParent(Parent parent) {
+		// TODO Auto-generated method stub
+		return pdao.updateParent();
+	}
+	@Override
+	public List<Parent> viewAllParents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
