@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import com.cg.optfs.entity.Parent;
+import com.cg.optfs.utils.DbUtil;
 
 public class ParentDAOImpl implements ParentDAO {
 
@@ -14,7 +15,7 @@ public class ParentDAOImpl implements ParentDAO {
 		manager= DbUtil.getConnection();
 	}
 	@Override
-	public Parent addParent() {
+	public Parent addParent(Parent parent) {
 		// TODO Auto-generated method stub
 		return null;
 	}
