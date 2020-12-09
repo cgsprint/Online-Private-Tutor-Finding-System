@@ -3,6 +3,7 @@ package com.cg.optfs.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import com.cg.optfs.entity.Parent;
 import com.cg.optfs.utils.DbUtil;
@@ -17,19 +18,25 @@ public class ParentDAOImpl implements ParentDAO {
 	@Override
 	public Parent addParent(Parent parent) {
 		// TODO Auto-generated method stub
-		return null;
+		manager.getTransaction().begin();
+		manager.persist(parent);
+		manager.getTransaction().commit();
+		return parent;
 	}
 
-	@Override
-	public Parent updateParent() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<Parent> viewAllParents() {
 		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Parent> query=manager.createQuery("select cc.parent from AllotedCreditCard cc",Parent.class);
+		List<Parent> list=query.getResultList();
+		return list;
+	}
+	@Override
+	public Parent updateParent(Parent parent) {
+		// TODO Auto-generated method stub
+		manager.merge(parent);
+		return parent;
 	}
 
 
