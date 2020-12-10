@@ -1,5 +1,7 @@
 package com.cg.optfs.dao;
 import com.cg.optfs.entity.*;
+
+
 import java.util.List;
 import com.cg.optfs.utils.*;
 import javax.persistence.EntityManager;
@@ -18,16 +20,15 @@ public class TutorDAOImpl implements TutorDAO {
 	@Override
 	public Tutor updateProfile(Tutor tutor) {
 		// TODO Auto-generated method stub
-		manager.getTransaction().begin();
-		manager.persist(tutor);
-		manager.getTransaction().commit();
+		manager.merge(tutor);
+		
 		return tutor;
 	}
 
 	@Override
 	public List<Request> ViewRequest(Request request,int tutorid) {
 		// TODO Auto-generated method stub
-		String qStr = "SELECT name FROM request book WHERE request.tutorid LIKE :tutorid";
+		String qStr = "SELECT name FROM request  WHERE request.tutorid LIKE :tutorid";
 		TypedQuery<Request> query = manager.createQuery(qStr, Request.class);
 		query.setParameter("ptitle", "%"+tutorid+"%");
 		return query.getResultList();
