@@ -265,7 +265,11 @@ public class Main {
 							  
 							  int parent_choice2 = sc.nextInt();
 							  
-							  
+							  switch(parent_choice2)
+							  {
+							  	case 1:
+							  		
+							  }
 						}
 						else
 						{
