@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.cg.optfs.dao.AdminDAO;
 import com.cg.optfs.dao.AdminDAOImpl;
+import com.cg.optfs.entity.Admin;
 import com.cg.optfs.entity.Parent;
+import com.cg.optfs.entity.Tutor;
 
 public class AdminServiceImpl implements AdminService{
 
@@ -19,11 +21,25 @@ public class AdminServiceImpl implements AdminService{
 	public boolean loginAdmin(String username, String password) {
 		return adao.loginAdmin(username, password);
 	}
+	
 	@Override
 	public List<org.hibernate.annotations.Parent> viewParent() {
 		
 		return adao.viewParent();
 	}
+	
+	@Override
+	public Tutor addTutor(Tutor tutor) {
+		
+		return adao.addTutor(tutor);
+	}
+	
+	@Override
+	public Admin logout() {
+		// TODO Auto-generated method stub
+		return adao.logout();
+	}
+	
 	
 	
 	/*@Override

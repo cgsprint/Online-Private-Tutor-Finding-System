@@ -10,4 +10,5 @@ public interface ParentService {
 	public Parent updateParent(Parent parent);
 	public List<Parent> viewAllParents();
 	public Request requestDemo(Request request);
+	public boolean loginParent(String p_username, String p_password);
 }

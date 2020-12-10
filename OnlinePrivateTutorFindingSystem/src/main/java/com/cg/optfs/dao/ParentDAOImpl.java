@@ -3,6 +3,7 @@ package com.cg.optfs.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.cg.optfs.entity.Parent;
@@ -15,7 +16,7 @@ public class ParentDAOImpl implements ParentDAO {
 		// TODO Auto-generated constructor stub
 		manager= DbUtil.getConnection();
 	}
-
+	@Override
 	public Parent addParent(Parent parent) {
 		// TODO Auto-generated method stub
 		manager.getTransaction().begin();
@@ -23,19 +24,38 @@ public class ParentDAOImpl implements ParentDAO {
 		manager.getTransaction().commit();
 		return parent;
 	}
-
-
+	@Override
 	public List<Parent> viewAllParents() {
 		// TODO Auto-generated method stub
-		TypedQuery<Parent> query=manager.createQuery("select cc.parent from AllotedCreditCard cc",Parent.class);
+		Query query=manager.createQuery("from parent");
 		List<Parent> list=query.getResultList();
 		return list;
 	}
+	@Override
 	public Parent updateParent(Parent parent) {
 		// TODO Auto-generated method stub
 		manager.merge(parent);
 		return parent;
 	}
+	@Override
+	public boolean loginParent(String username, String password) {
+//		TypedQuery<Parent> query=manager.createQuery("select cc.password from Parent cc where cc.username=:username",Parent.class);
+		TypedQuery<Parent> query=manager.createQuery("select cc from Parent cc where cc.username = :username AND cc.password = :password",Parent.class);
+		 query.setParameter("username",username);
+		 query.setParameter("password",password);
+		 List<Parent> results = query.getResultList();
+		if(!results.isEmpty())
+		{
+			return true;
+		}
+		return false;
+		/*
+		 * query.setParameter("username",username); String
+		 * password1=query.getSingleResult().toString(); if(password.equals(password1))
+		 * { return true; } return false;
+		 */
+	}
+
 
 
 

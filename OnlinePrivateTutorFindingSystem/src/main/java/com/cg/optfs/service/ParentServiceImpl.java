@@ -32,5 +32,10 @@ public class ParentServiceImpl implements ParentService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public boolean loginParent(String username, String password) {
+		
+		return pdao.loginParent(username, password);
+	}
 	
 }

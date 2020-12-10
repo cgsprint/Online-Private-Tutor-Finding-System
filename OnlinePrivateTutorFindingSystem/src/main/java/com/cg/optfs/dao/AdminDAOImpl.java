@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 import org.hibernate.annotations.Parent;
 
 import com.cg.optfs.entity.Admin;
+import com.cg.optfs.entity.Tutor;
 //import com.cg.optfs.entity.Tutor;
 import com.cg.optfs.utils.DbUtil;
 
@@ -57,7 +58,14 @@ public class AdminDAOImpl implements AdminDAO{
 	 * stub return null; }
 	 */
 	
+	@Override
+	public Tutor addTutor(Tutor tutor) {
 	
+		emanager.getTransaction().begin();
+		emanager.persist(tutor);
+		emanager.getTransaction().commit();
+		return tutor;
+	}
 
 	
 

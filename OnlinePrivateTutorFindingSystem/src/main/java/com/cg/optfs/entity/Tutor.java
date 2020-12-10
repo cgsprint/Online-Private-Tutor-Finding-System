@@ -45,8 +45,8 @@ public class Tutor {
 	public String getPhonenumber() {
 		return phonenumber;
 	}
-	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhonenumber(String string) {
+		this.phonenumber = string;
 	}
 	public String getAddress() {
 		return address;
