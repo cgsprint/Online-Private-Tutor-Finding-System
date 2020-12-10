@@ -27,9 +27,9 @@ public class ParentDAOImpl implements ParentDAO {
 	@Override
 	public List<Parent> viewAllParents() {
 		// TODO Auto-generated method stub
-		Query query=manager.createQuery("from parent");
-		List<Parent> list=query.getResultList();
-		return list;
+		Query query =manager.createQuery("from Parent");
+		 List<Parent> arr_cust =query.getResultList(); 
+		 return arr_cust;
 	}
 	@Override
 	public Parent updateParent(Parent parent) {

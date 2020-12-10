@@ -19,7 +19,7 @@ public interface AdminService {
 	 */
 	
 	public boolean loginAdmin(String username,String password);
-	public List<Parent> viewParent();
+	public List<com.cg.optfs.entity.Parent> viewParent();
 	public Admin logout();
 	public Tutor addTutor(Tutor tutor);
 	

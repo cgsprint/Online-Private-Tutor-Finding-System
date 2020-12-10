@@ -23,35 +23,32 @@ public class AdminDAOImpl implements AdminDAO{
 	@Override
 	public boolean loginAdmin(String username, String password) {
 		
-		if(username.equals("tejas") && password.equals("tejas123"))
+		
+		TypedQuery<Admin> query=emanager.createQuery("select cc from Admin cc where cc.username = :username AND cc.password = :password",Admin.class);
+		 query.setParameter("username",username);
+		 query.setParameter("password",password);
+		 List<Admin> results = query.getResultList();
+		if(!results.isEmpty())
 		{
 			return true;
 		}
 		return false;
 	}
 
-	/*
-	 * @Override public Tutor addTutor(Tutor tutor) { // TODO Auto-generated method
-	 * stub return null; }
-	 */
+	
 	@Override
 	public List<Parent> viewParent() {
-		/*
-		 * TypedQuery<Parent> query=
-		 * emanager.createQuery("select cc.parent from Parent cc where cc.parentId=:id"
-		 * ,Parent.class); query.setParameter("id", parentId); List<Parent>
-		 * list=query.getResultList(); return list;
-		 */
+		
 		Query query =emanager.createQuery("from Parent");
 		 List<Parent> arr_cust =query.getResultList(); 
 		 return arr_cust;
 	}
 	
-	@Override
-	public Admin logout(Admin admin) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	/*
+	 * @Override public Admin logout(Admin admin) { // TODO Auto-generated method
+	 * stub return null; }
+	 */
 	
 	/*
 	 * @Override public Ebook addEbook(Ebook ebook) { // TODO Auto-generated method

@@ -109,7 +109,7 @@ public class Main {
 							 * List<org.hibernate.annotations.Parent> lp = as.viewParent();
 							 * System.out.println(lp);
 							 */
-							List<org.hibernate.annotations.Parent> plst = as.viewParent();
+							List<Parent> plst = as.viewParent();
 							System.out.println();
 							Iterator i = plst.iterator();
 							

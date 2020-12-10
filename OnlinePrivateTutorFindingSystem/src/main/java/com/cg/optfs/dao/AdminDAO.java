@@ -14,7 +14,8 @@ public interface AdminDAO {
 	public Tutor addTutor(Tutor tutor);
 	public List<Parent> viewParent();
 //	public Ebook addEbook(Ebook ebook);
-	public Admin logout();
+//	public Admin logout();
+	
 	
 	
 

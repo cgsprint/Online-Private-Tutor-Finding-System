@@ -12,8 +12,7 @@ import javax.persistence.Table;
 public class Admin {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
-	@Column(name="ID")
+	@Column(name = "ID")
 	private int id;
 	@Column(name = "NAME")
 	private String name;
@@ -26,20 +25,19 @@ public class Admin {
 		
 	}
 	
-	public Admin(String name,String username,String password) {
+	public Admin(int id,String name,String username,String password) {
 		super();
-//		this.id = id;
+		this.id = id;
 		this.name = name;
 		this.username = username;
 		this.password = password;
 	}
-	
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setName(int id) {
 		this.id = id;
 	}
 
