@@ -70,7 +70,20 @@ public class Request {
 		return "Request [parentId=" + parentId + ", tutorId=" + tutorId + ", subject=" + subject + ", date=" + date
 				+ ", time=" + time + "]";
 	}
-	
+	public static void main(String[] args) {
+		
+		Tutor tutor = new Tutor();
+		String status =tutor.getStatus();
+		
+		switch(status)
+		{
+		case "Accept" : System.out.println(status.toString());
+		break;
+		
+		case "Reject" : System.out.println(status.toString());
+		break;
+		}
+	}
 	
 	
 	

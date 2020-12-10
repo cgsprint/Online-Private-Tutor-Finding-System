@@ -20,7 +20,16 @@ public class Ebook {
 		private String title;
 		@Column(name="Authorname",length=20)
 		private String Authorname;
+		@Column(name="Book")
+		private String Book;
+
 		
+		public String getBook() {
+			return Book;
+		}
+		public void setBook(String book) {
+			Book = book;
+		}
 		public int getBookId() {
 			return BookId;
 		}
@@ -41,7 +50,7 @@ public class Ebook {
 		}
 		@Override
 		public String toString() {
-			return "Ebook [BookId=" + BookId + ", title=" + title + ", Authorname=" + Authorname + "]";
+			return "Ebook [BookId=" + BookId + ", title=" + title + ", Authorname=" + Authorname + ",Book="+ Book +"]";
 		}
 		
 		
