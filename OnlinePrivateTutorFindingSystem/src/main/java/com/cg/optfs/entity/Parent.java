@@ -19,6 +19,10 @@ public class Parent {
 	private String firstName;
 	@Column(name="last_name")
 	private String lastName;
+	@Column(name="Username")
+	private String username;
+	@Column(name="Password")
+	private String password;
 	@Column(name="mob_no")
 	private String mobileNo;
 	@Column
@@ -44,6 +48,18 @@ public class Parent {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getMobileNo() {
 		return mobileNo;
 	}
@@ -62,8 +78,10 @@ public class Parent {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Parent [parentId=" + parentId + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
+				+ username + ", password=" + password + ", mobileNo=" + mobileNo + ", email=" + email + ", address="
+				+ address + "]";
+	}
 }
