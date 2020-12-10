@@ -18,8 +18,8 @@ public class Tutor {
 	private String name;
 	@Column(name = "SUBJECT")
 	public  String subject;
-                    @Column(name = "PHONENUMBER")
-	public int phonenumber;
+    @Column(name = "PHONENUMBER")
+	public String phonenumber;
 	@Column(name = "ADDRESS")
 	private String address;
 	@Column(name = "QUALIFICATON")
@@ -45,7 +45,7 @@ public class Tutor {
 	public int getPhonenumber() {
 		return phonenumber;
 	}
-	public void setPhonenumber(int phonenumber) {
+	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 	public String getAddress() {
