@@ -8,21 +8,23 @@ import com.cg.optfs.entity.BookedTutor;
 import com.cg.optfs.entity.Request;
 import com.cg.optfs.entity.Tutor;
 
-public class TutorServiceImpl implements TutorService{
-     TutorDAO tdao;
-     public TutorServiceImpl(){
- 		tdao=new TutorDAOImpl();
- 	}
+public class TutorServiceImpl implements TutorService {
+	TutorDAO tdao;
+
+	public TutorServiceImpl() {
+		tdao = new TutorDAOImpl();
+	}
+
 	@Override
 	public List<Request> viewRequest(Request request, int tutorid) {
 		// TODO Auto-generated method stub
-		return tdao.ViewRequest(request,tutorid);
+		return tdao.ViewRequest(request, tutorid);
 	}
 
 	@Override
 	public List<BookedTutor> ViewBookings(BookedTutor bookings, int tutorid) {
 		// TODO Auto-generated method stub
-		return tdao.ViewBookings(bookings,tutorid);
+		return tdao.ViewBookings(bookings, tutorid);
 	}
 
 	@Override
@@ -30,6 +32,5 @@ public class TutorServiceImpl implements TutorService{
 		// TODO Auto-generated method stub
 		return tdao.updateProfile(tutor);
 	}
-
 
 }
