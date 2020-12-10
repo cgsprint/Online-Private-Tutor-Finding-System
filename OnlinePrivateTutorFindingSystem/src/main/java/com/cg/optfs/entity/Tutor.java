@@ -24,6 +24,20 @@ public class Tutor {
 	private String address;
 	@Column(name = "QUALIFICATON")
 	private String qualification;
+	
+	public Tutor() {
+		
+	}
+	
+	public Tutor( String name, String subject, String phonenumber, String address, String qualification) {
+		super();
+//		this.id = id;
+		this.name = name;
+		this.subject = subject;
+		this.phonenumber = phonenumber;
+		this.address = address;
+		this.qualification = qualification;
+	}
 	public int getId() {
 		return id;
 	}

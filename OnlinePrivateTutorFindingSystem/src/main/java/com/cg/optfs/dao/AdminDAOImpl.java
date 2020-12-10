@@ -36,24 +36,7 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 
 	
-	@Override
-	public List<Parent> viewParent() {
-		
-		Query query =emanager.createQuery("from Parent");
-		 List<Parent> arr_cust =query.getResultList(); 
-		 return arr_cust;
-	}
 	
-	
-	/*
-	 * @Override public Admin logout(Admin admin) { // TODO Auto-generated method
-	 * stub return null; }
-	 */
-	
-	/*
-	 * @Override public Ebook addEbook(Ebook ebook) { // TODO Auto-generated method
-	 * stub return null; }
-	 */
 	
 	@Override
 	public Tutor addTutor(Tutor tutor) {

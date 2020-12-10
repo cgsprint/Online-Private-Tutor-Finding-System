@@ -14,22 +14,27 @@ public class Ebook {
 	
 	    @Id
 	    @GeneratedValue(strategy=GenerationType.AUTO)
-		@Column(name="BookId",length=5)
+		@Column(name="BookId")
 		private int BookId;
-		@Column(name="title",length=10)
+		@Column(name="title")
 		private String title;
-		@Column(name="Authorname",length=20)
+		@Column(name="Authorname")
 		private String Authorname;
-		@Column(name="Book")
-		private String Book;
+		@Column(name="Url")
+		private String Url;
 
+		public Ebook() {
+			
+		}
 		
-		public String getBook() {
-			return Book;
+		public Ebook( String title, String authorname, String url) {
+			super();
+//			BookId = bookId;
+			this.title = title;
+			this.Authorname = authorname;
+			this.Url= url;
 		}
-		public void setBook(String book) {
-			Book = book;
-		}
+		
 		public int getBookId() {
 			return BookId;
 		}
@@ -48,10 +53,22 @@ public class Ebook {
 		public void setAuthorname(String authorname) {
 			Authorname = authorname;
 		}
+
+		public String getUrl() {
+			return Url;
+		}
+
+		public void setUrl(String url) {
+			Url = url;
+		}
+
 		@Override
 		public String toString() {
-			return "Ebook [BookId=" + BookId + ", title=" + title + ", Authorname=" + Authorname + ",Book="+ Book +"]";
+			return "Ebook [BookId=" + BookId + ", title=" + title + ", Authorname=" + Authorname + ", Url=" + Url + "]";
 		}
+
+		
+		
 		
 		
 }

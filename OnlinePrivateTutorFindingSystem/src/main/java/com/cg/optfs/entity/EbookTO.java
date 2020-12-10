@@ -7,24 +7,22 @@ public class EbookTO {
 	private int BookId;
 	private String title;
 	private String Authorname;
-	private String Book;
+	private String Url;
 
+	public EbookTO() {
+		
+	}
 	
-	
-	public EbookTO(int bookId, String title, String authorname, String book) {
+	public EbookTO( String title, String authorname, String url) {
 		super();
-		BookId = bookId;
+//		BookId = bookId;
 		this.title = title;
-		Authorname = authorname;
-		Book = book;
+		this.Authorname = authorname;
+		this.Url = url;
+		
 	}
 	
-	public String getBook() {
-		return Book;
-	}
-	public void setBook(String book) {
-		Book = book;
-	}
+	
 	public int getBookId() {
 		return BookId;
 	}
@@ -41,12 +39,23 @@ public class EbookTO {
 		return Authorname;
 	}
 	public void setAuthorname(String authorname) {
-		Authorname = authorname;
+		this.Authorname = authorname;
 	}
+
+	public String getUrl() {
+		return Url;
+	}
+
+	public void setUrl(String url) {
+		Url = url;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Ebook [BookId=" + BookId + ", title=" + title + ", Authorname=" + Authorname + ",Book="+ Book +"]";
+		return "EbookTO [BookId=" + BookId + ", title=" + title + ", Authorname=" + Authorname + ", Url=" + Url + "]";
 	}
+	
 	
 
 }

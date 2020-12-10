@@ -10,11 +10,14 @@ public class TutorTO {
 	private String address;
 	private String qualification;
 	
+	public TutorTO() {
+		
+	}
 	
 	
-	public TutorTO(int id, String name, String subject, String phonenumber, String address, String qualification) {
+	public TutorTO( String name, String subject, String phonenumber, String address, String qualification) {
 		super();
-		this.id = id;
+//		this.id = id;
 		this.name = name;
 		this.subject = subject;
 		this.phonenumber = phonenumber;
@@ -22,12 +25,9 @@ public class TutorTO {
 		this.qualification = qualification;
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	/*
+	 * public int getId() { return id; } public void setId(int id) { this.id = id; }
+	 */
 	public String getName() {
 		return name;
 	}

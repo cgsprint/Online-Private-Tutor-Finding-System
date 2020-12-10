@@ -6,22 +6,29 @@ import org.apache.log4j.Logger;
 
 import com.cg.optfs.dao.AdminDAO;
 import com.cg.optfs.dao.AdminDAOImpl;
+import com.cg.optfs.dao.EbookDAO;
+import com.cg.optfs.dao.EbookDAOImpl;
 import com.cg.optfs.dao.ParentDAO;
 import com.cg.optfs.dao.ParentDAOImpl;
 import com.cg.optfs.entity.Admin;
+import com.cg.optfs.entity.Ebook;
+import com.cg.optfs.entity.EbookTO;
 import com.cg.optfs.entity.Parent;
 import com.cg.optfs.entity.Tutor;
+import com.cg.optfs.entity.TutorTO;
 
 public class AdminServiceImpl implements AdminService{
 	final static Logger logger = Logger.getLogger(AdminServiceImpl.class);
 	AdminDAO adao;
 	ParentDAO pdao;
+	EbookDAO edao;
 
 	
 	public AdminServiceImpl() {
 
 	adao= new AdminDAOImpl();
 	pdao = new ParentDAOImpl();
+	edao = new EbookDAOImpl();
 	}
 	/*
 	 * public AdminServiceImpl() {
@@ -42,14 +49,20 @@ public class AdminServiceImpl implements AdminService{
 	}
 	
 	@Override
-	public Tutor addTutor(Tutor tutor) {
-		
+	public Tutor addTutor(TutorTO tutorto) {
+		Tutor tutor = new Tutor(tutorto.getName(),tutorto.getSubject(),tutorto.getPhonenumber(),tutorto.getAddress(),tutorto.getQualification());
 		return adao.addTutor(tutor);
 	}
 	@Override
 	public Admin logout() {
-		// TODO Auto-generated method stub
+		System.exit(0);
 		return null;
+	}
+
+	@Override
+	public Ebook addEbook(EbookTO ebookto) {
+		Ebook ebook = new Ebook(ebookto.getTitle(),ebookto.getAuthorname(),ebookto.getUrl());
+		return edao.addEbooks(ebook);
 	}
 	
 	/*@Override

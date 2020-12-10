@@ -4,8 +4,7 @@ import javax.persistence.Column;
 
 public class ParentTO {
 
-private int parentId;
-	
+	private int parentId;
 	private String firstName;
 	private String lastName;
 	private String username;
@@ -14,12 +13,14 @@ private int parentId;
 	private String email;
 	private String address;
 	
+	public ParentTO() {
+		
+	}
 	
-	
-	public ParentTO(int parentId, String firstName, String lastName, String username, String password, String mobileNo,
+	public ParentTO(String firstName, String lastName, String username, String password, String mobileNo,
 			String email, String address) {
 		super();
-		this.parentId = parentId;
+//		this.parentId = parentId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;

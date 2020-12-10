@@ -5,9 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.cg.optfs.entity.Ebook;
-import com.cg.optfs.entity.LoginInfo;
+import com.cg.optfs.entity.EbookTO;
 import com.cg.optfs.entity.Parent;
-import com.cg.optfs.entity.Tutor;
+import com.cg.optfs.entity.ParentTO;
+import com.cg.optfs.entity.TutorTO;
 import com.cg.optfs.service.AdminAuthImplService;
 import com.cg.optfs.service.AdminAuthService;
 import com.cg.optfs.service.AdminService;
@@ -41,21 +42,16 @@ public class Main {
 		switch(role)
 		{
 			case 1:
-				LoginInfo li = new LoginInfo();
 				
 				
 				System.out.println("Enter the username:");
-//				li.setUsername(sc.next());
+
 				String username = sc.next();
 				
 				System.out.println("Enter the password:");
-//				li.setPassword(sc.next());
 				String password = sc.next();
 				
-//				boolean admin = aa.loginAdmin(li);
 				boolean res = as.loginAdmin(username, password);
-				
-//				System.out.println(res);
 				
 				if(res)
 				{ 
@@ -74,29 +70,37 @@ public class Main {
 				  	{ 
 				  		case 1:
 				  			
-				  			Tutor tutor = new Tutor();
-				  			
 				  			System.out.println("Enter Name: ");
-							tutor.setName(sc.next());
-							
+//							tutor.setName(sc.next());
+				  			String name = sc.next();
+//							sc.next();
 							System.out.println("Enter Subject: ");
-						  	tutor.setSubject(sc.next());
+//						  	tutor.setSubject(sc.next());
+							String subject = sc.next();
 //						  	sc.nextLine();
 							System.out.println("Enter Phone no : ");
-						  	tutor.setPhonenumber(sc.next());	
+//						  	tutor.setPhonenumber(sc.next());
+							String phoneno = sc.next();
+						  	
 //						  	sc.nextLine();
 						 	System.out.println("Enter address: ");
-						 	tutor.setAddress(sc.next());
+//						 	tutor.setAddress(sc.next());
+						 	String addr = sc.next();
 						 	
 						 	System.out.println("Enter Qualification: ");
-						 	tutor.setQualification(sc.next());
+//						 	tutor.setQualification(sc.next());
+						 	String qualification = sc.next();
 						 	
-						 	Tutor tut = as.addTutor(tutor);
+						 	TutorTO tutorto = new TutorTO(name, subject, phoneno, addr, qualification);
+//						 	Tutor tut = as.addTutor(tutor);
+						 	as.addTutor(tutorto);
+						 	
 						 	System.out.println("Tutor registered succefully...");
 						 	
 						 	System.out.println("1. Register Tutor");
 							System.out.println("2. View parents");
-							System.out.println("3. Logout");
+							System.out.println("3. Add ebooks");
+							System.out.println("4. Logout");
 							
 							System.out.println("Enter the choice number:");
 							choice = sc.nextInt(); 
@@ -113,7 +117,7 @@ public class Main {
 							System.out.println();
 							Iterator i = plst.iterator();
 							
-							System.out.println("======== List of parents ===================");
+							System.out.println("=============================== List of parents ==============================");
 							while(i.hasNext())
 							{
 								System.out.println(i.next());
@@ -123,29 +127,31 @@ public class Main {
 							
 							System.out.println("1. Register Tutor");
 							System.out.println("2. View parents");
+							System.out.println("3. Add ebooks");
 							System.out.println("3. Logout");
 							
 							System.out.println("Enter the choice number:");
 							choice = sc.nextInt(); 
 						  	break;
 						case 3:
-							Ebook ebook = new Ebook();
+//							Ebook ebook = new Ebook();
 							
 							System.out.println("Enter Title: ");
-							ebook.setTitle(sc.next());
-							
+							String title =sc.next();
+							sc.nextLine();
 							System.out.println("Enter Author: ");
-							ebook.setAuthorname(sc.next());
+							String author = sc.nextLine();
+//							sc.next();
+							System.out.println("Enter URL:");
+							String url = sc.nextLine();
+//							sc.next();
 							
-							Ebook eb = es.addEbooks(ebook);
+							EbookTO ebookto = new EbookTO(title, author, url);
+							as.addEbook(ebookto);
+							
 							System.out.println("Ebook added");
 						case 4:
-							
-//							Admin admin = new Admin();
-//							System.out.println("Exit");
-//							System.exit(0);
 							as.logout();
-							
 							break;
 						  			
 					}
@@ -199,24 +205,32 @@ public class Main {
 				switch(parent_choice)
 					{
 					case 1:
-						Parent parent = new Parent();
+//						Parent parent = new Parent();
 
 						System.out.println("Enter first name: ");
-						parent.setFirstName(sc.next());
+						String first_name = sc.next();
 						System.out.println("Enter last name: ");
-						parent.setLastName(sc.next());
+//						parent.setLastName(sc.next());
+						String last_name = sc.next();
 						System.out.println("Enter Username: ");
-						parent.setUsername(sc.next());
+//						parent.setUsername(sc.next());
+						String uname = sc.next();
 						System.out.println("Enter Password: ");
-						parent.setPassword(sc.next());
+//						parent.setPassword(sc.next());
+						String pass = sc.next();
 						System.out.println("Enter Mobile no: ");
-						parent.setMobileNo(sc.next());
+//						parent.setMobileNo(sc.next());
+						String mobileno = sc.next();
 						System.out.println("Enter Email: ");
-						parent.setEmail(sc.next());
+//						parent.setEmail(sc.next());
+						String email = sc.next();
 						System.out.println("Enter Address: ");
-						parent.setAddress(sc.next());
+//						parent.setAddress(sc.next());
+						String addr = sc.next();
 
-						Parent pt = ps.addParent(parent);
+						ParentTO parentto = new ParentTO(first_name, last_name, uname, pass, mobileno, email, addr);
+//						Parent pt = ps.addParent(parent);
+						ps.addParent(parentto);
 						System.out.println("You registered succesfully.");
 						
 						/*
@@ -242,7 +256,6 @@ public class Main {
 						boolean result = ps.loginParent(p_username, p_password);
 						if(result == true)
 						{
-							System.out.println("Valid parent");
 							
 							  System.out.println("1. View Tutor"); 
 							  System.out.println("2. View Bookings");
@@ -251,7 +264,8 @@ public class Main {
 							  System.out.println("Enter the choice number: ");
 							  
 							  int parent_choice2 = sc.nextInt();
-							 
+							  
+							  
 						}
 						else
 						{

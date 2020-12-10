@@ -30,6 +30,22 @@ public class Parent {
 	@Column
 	private String address;
 	
+	public Parent() {
+		
+	}
+	
+	public Parent(String firstName, String lastName, String username, String password, String mobileNo,
+			String email, String address) {
+		super();
+//		this.parentId = parentId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.mobileNo = mobileNo;
+		this.email = email;
+		this.address = address;
+	}
 	public int getParentId() {
 		return parentId;
 	}
