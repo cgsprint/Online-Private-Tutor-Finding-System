@@ -1,5 +1,7 @@
 package com.cg.optfs.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -12,12 +14,23 @@ import javax.persistence.Id;
 public class BookedTutor {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="requestId")
+	private int requestId;
+	
+
+	public void setRequestId(int requestId) {
+		this.requestId = requestId;
+	}
+
 	@Column(name="parent_id")
 	private int parentId;
 	
 	@Column(name="tutor_id")
 	private int tutorId;
 
+	public int getRequestId() {
+		return requestId;
+	}
 	public int getParentId() {
 		return parentId;
 	}
@@ -36,10 +49,16 @@ public class BookedTutor {
 
 	@Override
 	public String toString() {
-		return "BookedTutor [parentId=" + parentId + ", tutorId=" + tutorId + "]";
+		return "BookedTutor [requestId="+ requestId +",parentId=" + parentId + ", tutorId=" + tutorId + "]";
 	}
 	
-	
+	public static void main(String args[]) {
+	    
+	      Date date = new Date();
+
+	      
+	      System.out.println(date.toString());
+	   }
 	
 }
 
