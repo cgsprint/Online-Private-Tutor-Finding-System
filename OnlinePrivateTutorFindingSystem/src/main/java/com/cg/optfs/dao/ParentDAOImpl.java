@@ -13,7 +13,7 @@ import com.cg.optfs.utils.DbUtil;
 
 public class ParentDAOImpl implements ParentDAO {
 
-	final static Logger logger = Logger.getLogger(AdminDAOImpl.class);
+	final static Logger logger = Logger.getLogger(ParentDAOImpl.class);
 	EntityManager manager;
 	public  ParentDAOImpl() {
 		// TODO Auto-generated constructor stub
@@ -22,6 +22,7 @@ public class ParentDAOImpl implements ParentDAO {
 	@Override
 	public Parent addParent(Parent parent) {
 		// TODO Auto-generated method stub
+		logger.info("Parent addParent DAO started");
 		manager.getTransaction().begin();
 		manager.persist(parent);
 		manager.getTransaction().commit();
@@ -30,6 +31,7 @@ public class ParentDAOImpl implements ParentDAO {
 	@Override
 	public List<Parent> viewAllParents() {
 		// TODO Auto-generated method stub
+		logger.info("Parent viewParent DAO started");
 		Query query =manager.createQuery("from Parent");
 		 List<Parent> arr_cust =query.getResultList(); 
 		 return arr_cust;
@@ -37,11 +39,13 @@ public class ParentDAOImpl implements ParentDAO {
 	@Override
 	public Parent updateParent(Parent parent) {
 		// TODO Auto-generated method stub
+		logger.info("Parent updateParent DAO started");
 		manager.merge(parent);
 		return parent;
 	}
 	@Override
 	public boolean loginParent(String username, String password) {
+		logger.info("Parent login DAO started");
 //		TypedQuery<Parent> query=manager.createQuery("select cc.password from Parent cc where cc.username=:username",Parent.class);
 		TypedQuery<Parent> query=manager.createQuery("select cc from Parent cc where cc.username = :username AND cc.password = :password",Parent.class);
 		 query.setParameter("username",username);
