@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
 import org.hibernate.annotations.Parent;
 
 import com.cg.optfs.entity.Admin;
@@ -15,6 +16,7 @@ import com.cg.optfs.utils.DbUtil;
 
 public class AdminDAOImpl implements AdminDAO{
 
+	final static Logger logger = Logger.getLogger(AdminDAOImpl.class);
 	EntityManager emanager;	
 	public  AdminDAOImpl() {
 		// TODO Auto-generated constructor stub
@@ -23,7 +25,7 @@ public class AdminDAOImpl implements AdminDAO{
 	@Override
 	public boolean loginAdmin(String username, String password) {
 		
-		
+		logger.info("Admin DAO login started");
 		TypedQuery<Admin> query=emanager.createQuery("select cc from Admin cc where cc.username = :username AND cc.password = :password",Admin.class);
 		 query.setParameter("username",username);
 		 query.setParameter("password",password);
@@ -46,7 +48,6 @@ public class AdminDAOImpl implements AdminDAO{
 		emanager.getTransaction().commit();
 		return tutor;
 	}
-
 	
 
 }

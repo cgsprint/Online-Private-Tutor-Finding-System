@@ -6,11 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
+
 import com.cg.optfs.entity.Parent;
 import com.cg.optfs.utils.DbUtil;
 
 public class ParentDAOImpl implements ParentDAO {
 
+	final static Logger logger = Logger.getLogger(AdminDAOImpl.class);
 	EntityManager manager;
 	public  ParentDAOImpl() {
 		// TODO Auto-generated constructor stub
