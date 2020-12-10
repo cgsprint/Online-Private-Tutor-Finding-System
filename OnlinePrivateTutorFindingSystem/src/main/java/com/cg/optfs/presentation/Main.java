@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.cg.optfs.entity.Ebook;
 import com.cg.optfs.entity.EbookTO;
 import com.cg.optfs.entity.Parent;
@@ -23,7 +25,7 @@ import com.cg.optfs.service.TutorServiceImpl;
 public class Main {
 
 	public static void main(String[] args) {
-
+		Logger logger = Logger.getLogger(Main.class);
 		AdminAuthService aa = new AdminAuthImplService();
 		AdminService as = new AdminServiceImpl();
 		ParentService ps = new ParentServiceImpl();
@@ -31,7 +33,7 @@ public class Main {
 		EbookService es = new EbookServiceImpl();
 		
 		Scanner sc = new Scanner(System.in);
-		
+		logger.info("Main started");
 		System.out.println("1. Admin");
 		System.out.println("2. Tutor");
 		System.out.println("3. Parent");
@@ -52,7 +54,8 @@ public class Main {
 				String password = sc.next();
 				
 				boolean res = as.loginAdmin(username, password);
-				
+				logger.info("Admin login Dao stopped");
+				logger.info("Admin login Service stopped");
 				if(res)
 				{ 
 					System.out.println("1. Register Tutor");
@@ -94,6 +97,8 @@ public class Main {
 						 	TutorTO tutorto = new TutorTO(name, subject, phoneno, addr, qualification);
 //						 	Tutor tut = as.addTutor(tutor);
 						 	as.addTutor(tutorto);
+						 	logger.info("Tutor addTutor Dao stopped");
+							logger.info("Admin addTutor Service stopped");
 						 	
 						 	System.out.println("Tutor registered succefully...");
 						 	
@@ -114,6 +119,8 @@ public class Main {
 							 * System.out.println(lp);
 							 */
 							List<Parent> plst = as.viewParent();
+							logger.info("Parent listParent Dao stopped");
+							logger.info("Admin listParent Service stopped");
 							System.out.println();
 							Iterator i = plst.iterator();
 							
@@ -148,6 +155,8 @@ public class Main {
 							
 							EbookTO ebookto = new EbookTO(title, author, url);
 							as.addEbook(ebookto);
+							logger.info("Ebook addEbook Dao stopped");
+							logger.info("Admin addEbook Service stopped");
 							
 							System.out.println("Ebook added");
 						case 4:
@@ -231,6 +240,8 @@ public class Main {
 						ParentTO parentto = new ParentTO(first_name, last_name, uname, pass, mobileno, email, addr);
 //						Parent pt = ps.addParent(parent);
 						ps.addParent(parentto);
+						logger.info("Parent addParent Dao stopped");
+						logger.info("Parent addParent Service stopped");
 						System.out.println("You registered succesfully.");
 						
 						/*
@@ -256,7 +267,8 @@ public class Main {
 						boolean result = ps.loginParent(p_username, p_password);
 						if(result == true)
 						{
-							
+							logger.info("Parent login Dao stopped");
+							logger.info("Parent login Service stopped");
 							  System.out.println("1. View Tutor"); 
 							  System.out.println("2. View Bookings");
 							  System.out.println("3. Logout");
