@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
 import com.cg.optfs.entity.Ebook;
 import com.cg.optfs.utils.DbUtil;
 public class EbookDAOImpl implements EbookDAO {
