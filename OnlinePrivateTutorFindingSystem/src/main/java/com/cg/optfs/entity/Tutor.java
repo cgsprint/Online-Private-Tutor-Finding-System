@@ -42,7 +42,7 @@ public class Tutor {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public int getPhonenumber() {
+	public String getPhonenumber() {
 		return phonenumber;
 	}
 	public void setPhonenumber(String phonenumber) {
