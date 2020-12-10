@@ -2,6 +2,8 @@ package com.cg.optfs.service;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.cg.optfs.dao.AdminDAO;
 import com.cg.optfs.dao.AdminDAOImpl;
 import com.cg.optfs.dao.ParentDAO;
@@ -11,7 +13,7 @@ import com.cg.optfs.entity.Parent;
 import com.cg.optfs.entity.Tutor;
 
 public class AdminServiceImpl implements AdminService{
-
+	final static Logger logger = Logger.getLogger(AdminServiceImpl.class);
 	AdminDAO adao;
 	ParentDAO pdao;
 
@@ -29,6 +31,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public boolean loginAdmin(String username, String password) {
+		logger.info("Admin Service started");
 		return adao.loginAdmin(username, password);
 	}
 	

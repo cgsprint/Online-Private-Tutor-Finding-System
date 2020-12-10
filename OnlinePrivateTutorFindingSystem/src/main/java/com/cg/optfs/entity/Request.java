@@ -21,9 +21,7 @@ public class Request {
 	
 	private String subject ;
 	
-	private int date;
 	
-	private int time;
 
 	public int getParentId() {
 		return parentId;
@@ -49,28 +47,26 @@ public class Request {
 		this.subject = subject;
 	}
 
-	public int getDate() {
-		return date;
-	}
-
-	public void setDate(int date) {
-		this.date = date;
-	}
-
-	public int getTime() {
-		return time;
-	}
-
-	public void setTime(int time) {
-		this.time = time;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Request [parentId=" + parentId + ", tutorId=" + tutorId + ", subject=" + subject + ", date=" + date
-				+ ", time=" + time + "]";
+		return "Request [parentId=" + parentId + ", tutorId=" + tutorId + ", subject=" + subject + "]";
 	}
-	
+	public static void main(String[] args) {
+		
+		Tutor tutor = new Tutor();
+		String status =tutor.getStatus();
+		
+		switch(status)
+		{
+		case "Accept" : System.out.println(status.toString());
+		break;
+		
+		case "Reject" : System.out.println(status.toString());
+		break;
+		}
+	}
 	
 	
 	
