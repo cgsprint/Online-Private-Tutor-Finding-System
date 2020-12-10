@@ -11,7 +11,7 @@ public interface AdminDAO {
 	
 	public boolean loginAdmin(String username,String password);
 //	public Tutor addTutor(Tutor tutor);
-	public List<Parent> viewParent(int parentId);
+	public List<Parent> viewParent();
 //	public Ebook addEbook(Ebook ebook);
 	public Admin logout(Admin admin);
 	

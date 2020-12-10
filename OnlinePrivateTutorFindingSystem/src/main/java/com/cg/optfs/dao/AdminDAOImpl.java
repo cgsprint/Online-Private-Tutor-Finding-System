@@ -3,6 +3,7 @@ package com.cg.optfs.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.hibernate.annotations.Parent;
@@ -33,12 +34,16 @@ public class AdminDAOImpl implements AdminDAO{
 	 * stub return null; }
 	 */
 	@Override
-	public List<Parent> viewParent(int parentId) {
-		TypedQuery<Parent> query= emanager.createQuery("select cc.parent from Parent cc where cc.parentId=:id",Parent.class);
-		query.setParameter("id", parentId);
-		List<Parent> list=query.getResultList();
-		return list;
-		
+	public List<Parent> viewParent() {
+		/*
+		 * TypedQuery<Parent> query=
+		 * emanager.createQuery("select cc.parent from Parent cc where cc.parentId=:id"
+		 * ,Parent.class); query.setParameter("id", parentId); List<Parent>
+		 * list=query.getResultList(); return list;
+		 */
+		Query query =emanager.createQuery("from Parent");
+		 List<Parent> arr_cust =query.getResultList(); 
+		 return arr_cust;
 	}
 	
 	@Override

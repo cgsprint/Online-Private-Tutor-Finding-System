@@ -16,6 +16,6 @@ public interface AdminService {
 	 */
 	
 	public boolean loginAdmin(String username,String password);
-	public List<Parent> viewParent(int parentId);
+	public List<Parent> viewParent();
 	
 }

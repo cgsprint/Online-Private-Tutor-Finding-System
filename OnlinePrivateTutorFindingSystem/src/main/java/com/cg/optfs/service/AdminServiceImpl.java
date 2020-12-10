@@ -20,9 +20,9 @@ public class AdminServiceImpl implements AdminService{
 		return adao.loginAdmin(username, password);
 	}
 	@Override
-	public List<org.hibernate.annotations.Parent> viewParent(int parentId) {
+	public List<org.hibernate.annotations.Parent> viewParent() {
 		
-		return adao.viewParent(parentId);
+		return adao.viewParent();
 	}
 	
 	

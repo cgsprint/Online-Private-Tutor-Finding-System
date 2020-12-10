@@ -1,5 +1,7 @@
 package com.cg.optfs.presentation;
 
+import java.util.Iterator;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -60,11 +62,11 @@ public class Main {
 				  
 			  			break;
 			  		case 2:
-			  			System.out.println("Enter parent id");
-			  			int parentId = sc.nextInt();
+			  		
 			  			
-			  			List<org.hibernate.annotations.Parent> lp = as.viewParent(parentId);
+			  			List<org.hibernate.annotations.Parent> lp = as.viewParent();
 			  			
+			  			System.out.println(lp);
 			  			
 			  			
 			  	}
