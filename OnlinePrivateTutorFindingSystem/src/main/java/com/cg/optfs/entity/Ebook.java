@@ -39,6 +39,11 @@ public class Ebook {
 		public void setAuthorname(String authorname) {
 			Authorname = authorname;
 		}
+		@Override
+		public String toString() {
+			return "Ebook [BookId=" + BookId + ", title=" + title + ", Authorname=" + Authorname + "]";
+		}
+		
 		
 }
 

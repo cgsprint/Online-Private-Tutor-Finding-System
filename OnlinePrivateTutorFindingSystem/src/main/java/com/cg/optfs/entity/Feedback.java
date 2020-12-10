@@ -32,6 +32,10 @@ public class Feedback {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+	@Override
+	public String toString() {
+		return "Feedback [tutorId=" + tutorId + ", parentId=" + parentId + ", rating=" + rating + "]";
+	}
 	
 
 }
