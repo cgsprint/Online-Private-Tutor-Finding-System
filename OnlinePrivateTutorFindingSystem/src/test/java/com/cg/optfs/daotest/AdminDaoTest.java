@@ -34,6 +34,7 @@ public class AdminDaoTest {
 	   Admin admin=new Admin();
 	   boolean tobj = adao.loginAdmin("man43", "manoj435");
 		assertTrue(tobj);
+		//Comment
    }
     
    
