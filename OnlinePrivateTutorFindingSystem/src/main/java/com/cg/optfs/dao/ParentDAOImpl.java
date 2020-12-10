@@ -15,7 +15,7 @@ public class ParentDAOImpl implements ParentDAO {
 		// TODO Auto-generated constructor stub
 		manager= DbUtil.getConnection();
 	}
-	@Override
+
 	public Parent addParent(Parent parent) {
 		// TODO Auto-generated method stub
 		manager.getTransaction().begin();
@@ -25,14 +25,12 @@ public class ParentDAOImpl implements ParentDAO {
 	}
 
 
-	@Override
 	public List<Parent> viewAllParents() {
 		// TODO Auto-generated method stub
 		TypedQuery<Parent> query=manager.createQuery("select cc.parent from AllotedCreditCard cc",Parent.class);
 		List<Parent> list=query.getResultList();
 		return list;
 	}
-	@Override
 	public Parent updateParent(Parent parent) {
 		// TODO Auto-generated method stub
 		manager.merge(parent);
