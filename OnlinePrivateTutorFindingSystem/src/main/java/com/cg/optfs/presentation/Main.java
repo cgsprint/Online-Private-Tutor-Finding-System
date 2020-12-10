@@ -83,7 +83,7 @@ public class Main {
 						  	tutor.setSubject(sc.next());
 //						  	sc.nextLine();
 							System.out.println("Enter Phone no : ");
-						  	tutor.setPhonenumber(sc.next());	
+						  	tutor.setPhonenumber(sc.nextInt());	
 //						  	sc.nextLine();
 						 	System.out.println("Enter address: ");
 						 	tutor.setAddress(sc.next());
