@@ -7,7 +7,13 @@ public class BookedTutorTO {
 	private int requestId;
 	
 	
-	
+	public BookedTutorTO(int requestId, int parentId, int tutorId) {
+		super();
+		this.requestId = requestId;
+		this.parentId = parentId;
+		this.tutorId = tutorId;
+	}
+
 	private int parentId;
 	
 	private int tutorId;

@@ -18,8 +18,11 @@ public class BookedTutor {
 	private int requestId;
 	
 
-	public void setRequestId(int requestId) {
+	public BookedTutor(int requestId, int parentId, int tutorId) {
+		super();
 		this.requestId = requestId;
+		this.parentId = parentId;
+		this.tutorId = tutorId;
 	}
 
 	@Column(name="parent_id")
@@ -31,6 +34,11 @@ public class BookedTutor {
 	public int getRequestId() {
 		return requestId;
 	}
+	
+	public void setRequestId(int requestId) {
+		this.requestId = requestId;
+	}
+	
 	public int getParentId() {
 		return parentId;
 	}
