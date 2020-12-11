@@ -141,7 +141,7 @@ public class Main {
 							System.out.println("1. Register Tutor");
 							System.out.println("2. View parents");
 							System.out.println("3. Add ebooks");
-							System.out.println("3. Logout");
+							System.out.println("4. Logout");
 							
 							System.out.println("Enter the choice number:");
 							choice = sc.nextInt(); 
@@ -165,6 +165,15 @@ public class Main {
 							logger.info("Admin addEbook Service stopped");
 							
 							System.out.println("Ebook added");
+							
+							System.out.println("1. Register Tutor");
+							System.out.println("2. View parents");
+							System.out.println("3. Add ebooks");
+							System.out.println("4. Logout");
+							
+							System.out.println("Enter the choice number:");
+							choice = sc.nextInt(); 
+						  	break;
 						case 4:
 							as.logout();
 							break;
