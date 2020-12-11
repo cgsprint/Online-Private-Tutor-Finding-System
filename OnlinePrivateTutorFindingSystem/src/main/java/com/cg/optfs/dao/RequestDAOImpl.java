@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 import org.apache.log4j.Logger;
 
 import com.cg.optfs.entity.Request;
+import com.cg.optfs.entity.Tutor;
 import com.cg.optfs.utils.DbUtil;
 
 public class RequestDAOImpl implements RequestDAO{
@@ -17,12 +18,12 @@ public class RequestDAOImpl implements RequestDAO{
 		emanager= DbUtil.getConnection();
 	}
 	@Override
-	public List<Request> viewRequest(Request request) {
+	public List<Request> viewRequest(int tutorid) {
 		logger.info("Request viewRequest DAO started");
-		TypedQuery<Request> query=emanager.createQuery("select r.request from Request r where r.type=:abc",Request.class);
-//		query.setParameter("abc", type);
-		List<Request> list=query.getResultList();
-		return list;
+		TypedQuery<Request> query = emanager.createQuery("select r from Request r where r.tutorId =:tId",Request.class);
+		query.setParameter("tId", tutorid);
+		List<Request> tlst = query.getResultList();
+		return tlst;
 		
 	}
 	@Override

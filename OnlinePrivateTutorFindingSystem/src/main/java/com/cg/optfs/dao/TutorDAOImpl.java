@@ -88,4 +88,14 @@ public class TutorDAOImpl implements TutorDAO {
 		return tutor;
 	}
 
+	@Override
+	public int getTutorId(String t_username) {
+		// TODO Auto-generated method stub
+		TypedQuery<Tutor> query = manager.createQuery("select t from Tutor t where t.username =:username",Tutor.class);
+		query.setParameter("username", t_username);
+		Tutor tutor = query.getSingleResult();
+		int tutorid = tutor.getId();
+		return tutorid;
+	}
+
 }

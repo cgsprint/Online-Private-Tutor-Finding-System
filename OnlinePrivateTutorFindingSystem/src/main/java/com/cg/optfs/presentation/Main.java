@@ -222,6 +222,15 @@ public class Main {
 						case 1:
 							//View demo request code
 							System.out.println("View Demo request");
+							List<Request> request = ts.viewRequest(t_username);
+							System.out.println();
+							Iterator i =  request.iterator();
+							
+							System.out.println("=============================== List of Demo Request to tutor ==============================");
+							while(i.hasNext())
+							{
+								System.out.println(i.next());
+							}
 							
 //							List<Request> rlst = ts.viewRequest(request, tutorid)
 							break;
@@ -283,7 +292,6 @@ public class Main {
 
 						ParentTO parentto = new ParentTO(first_name, last_name, uname, pass, mobileno, email, addr);
 						Parent pt = ps.addParent(parentto);
-						ps.addParent(parentto);
 						
 						logger.info("Parent addParent Dao stopped");
 						logger.info("Parent addParent Service stopped");

@@ -15,6 +15,7 @@ public interface TutorService {
 	
 	//public Tutor getTutor(String t_username);
 	public Tutor getTutor(String t_username);
+	public List<Request> viewRequest(String t_username);
 
 //	public List<>
 
