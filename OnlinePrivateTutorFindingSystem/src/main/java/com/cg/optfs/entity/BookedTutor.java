@@ -16,7 +16,9 @@ public class BookedTutor {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="requestId")
 	private int requestId;
-	
+	public BookedTutor() {
+		
+	}
 
 	public BookedTutor(int requestId, int parentId, int tutorId) {
 		super();
