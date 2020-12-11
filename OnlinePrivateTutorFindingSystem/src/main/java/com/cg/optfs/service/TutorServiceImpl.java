@@ -39,4 +39,11 @@ public class TutorServiceImpl implements TutorService {
 		return tdao.updateProfile(tutor);
 	}
 
+	@Override
+	public boolean loginTutor(String tutor_username, String tutor_password) {
+		
+		
+		return tdao.loginTutor(tutor_username,tutor_password);
+	}
+
 }

@@ -62,6 +62,22 @@ public class ParentDAOImpl implements ParentDAO {
 		 * { return true; } return false;
 		 */
 	}
+	@Override
+	public String getAddress(String p_username) {
+		TypedQuery<Parent> query = manager.createQuery("select p from Parent p where p.username =:username",Parent.class);
+		query.setParameter("username", p_username);
+		Parent parent = query.getSingleResult();
+		String addr = parent.getAddress();
+		return addr;
+	}
+	@Override
+	public Parent getParent(String p_username1) {
+		
+		TypedQuery<Parent> query = manager.createQuery("select p from Parent p where p.username =:username",Parent.class);
+		query.setParameter("username", p_username1);
+		Parent parent = query.getSingleResult();
+		return parent;
+	}
 
 
 

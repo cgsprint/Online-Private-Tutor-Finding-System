@@ -13,6 +13,9 @@ public class Request {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "request_id")
+	private int requestId;
+	
 	@Column(name="parent_id")
 	private int parentId;
 	
@@ -21,7 +24,38 @@ public class Request {
 	
 	private String subject ;
 	
+	private String date;
 	
+	private String time;
+	
+	public Request() {
+		
+	}
+
+	public Request(int parentId, int tutorId, String subject, String date, String time) {
+		super();
+		this.parentId = parentId;
+		this.tutorId = tutorId;
+		this.subject = subject;
+		this.date = date;
+		this.time = time;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
 
 	public int getParentId() {
 		return parentId;
@@ -47,12 +81,15 @@ public class Request {
 		this.subject = subject;
 	}
 
-	
-
 	@Override
 	public String toString() {
-		return "Request [parentId=" + parentId + ", tutorId=" + tutorId + ", subject=" + subject + "]";
+		return "Request [parentId=" + parentId + ", tutorId=" + tutorId + ", subject=" + subject + ", date=" + date
+				+ ", time=" + time + "]";
 	}
+
+	
+
+	
 	/*
 	 * public static void main(String[] args) {
 	 * 

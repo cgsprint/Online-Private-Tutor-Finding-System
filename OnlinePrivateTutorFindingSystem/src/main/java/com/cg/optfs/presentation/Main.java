@@ -10,6 +10,9 @@ import com.cg.optfs.entity.Ebook;
 import com.cg.optfs.entity.EbookTO;
 import com.cg.optfs.entity.Parent;
 import com.cg.optfs.entity.ParentTO;
+import com.cg.optfs.entity.Request;
+import com.cg.optfs.entity.RequestTO;
+import com.cg.optfs.entity.Tutor;
 import com.cg.optfs.entity.TutorTO;
 import com.cg.optfs.service.AdminAuthImplService;
 import com.cg.optfs.service.AdminAuthService;
@@ -19,6 +22,8 @@ import com.cg.optfs.service.EbookService;
 import com.cg.optfs.service.EbookServiceImpl;
 import com.cg.optfs.service.ParentService;
 import com.cg.optfs.service.ParentServiceImpl;
+import com.cg.optfs.service.RequestService;
+import com.cg.optfs.service.RequestServiceImpl;
 import com.cg.optfs.service.TutorService;
 import com.cg.optfs.service.TutorServiceImpl;
 
@@ -31,6 +36,7 @@ public class Main {
 		ParentService ps = new ParentServiceImpl();
 		TutorService ts = new TutorServiceImpl();
 		EbookService es = new EbookServiceImpl();
+		RequestService rs = new RequestServiceImpl();
 		
 		Scanner sc = new Scanner(System.in);
 		logger.info("Main started");
@@ -176,32 +182,49 @@ public class Main {
 			case 2:
 				// Code for Tutor
 				
-				System.out.println("1. View Demo requests");
-				System.out.println("2. View Bookings");
-				System.out.println("3. Update profile");
-				System.out.println("Enter the choice number: ");
+				System.out.println("Enter the username:");
+
+				String tutor_username = sc.next();
 				
-				int tutor_choice = sc.nextInt();
+				System.out.println("Enter the password:");
+				String tutor_password = sc.next();
 				
-				switch(tutor_choice)
+				boolean tutor_res = ts.loginTutor(tutor_username, tutor_password);
+				
+				if(tutor_res)
 				{
-					case 1:
-						//View demo request code
-						System.out.println("View Demo request");
-						break;
-					case 2:
-						//View Bookings
-						System.out.println("View Bookings");
-						break;
-					case 3:
-						//Update profile
-						System.out.println("Update profile");
-						break;
-					default:
-						System.out.println("Invalid choice");
-						break;
-						
+					System.out.println("1. View Demo requests");
+					System.out.println("2. View Bookings");
+					System.out.println("3. Update profile");
+					System.out.println("Enter the choice number: ");
+					
+					int tutor_choice = sc.nextInt();
+					
+					switch(tutor_choice)
+					{
+						case 1:
+							//View demo request code
+							System.out.println("View Demo request");
+							
+//							List<Request> rlst = ts.viewRequest(request, tutorid)
+							break;
+						case 2:
+							//View Bookings
+							System.out.println("View Bookings");
+							break;
+						case 3:
+							//Update profile
+							System.out.println("Update profile");
+							break;
+						default:
+							System.out.println("Invalid choice");
+							break;
+							
+					}
 				}
+				
+				
+				
 				break;
 			case 3:
 				//Code for parent
@@ -238,8 +261,9 @@ public class Main {
 						String addr = sc.next();
 
 						ParentTO parentto = new ParentTO(first_name, last_name, uname, pass, mobileno, email, addr);
-//						Parent pt = ps.addParent(parent);
+						Parent pt = ps.addParent(parentto);
 						ps.addParent(parentto);
+						
 						logger.info("Parent addParent Dao stopped");
 						logger.info("Parent addParent Service stopped");
 						System.out.println("You registered succesfully.");
@@ -249,38 +273,140 @@ public class Main {
 						 * System.out.println("Enter the choice number: ");
 						 * 
 						 * parent_choice = sc.nextInt();
-						 */
+						
+						 
 
-						/*
-						 * System.out.println("Enter Username: "); String p_username = sc.next();
-						 * System.out.println("Enter Password: "); String p_password = sc.next();
-						 * 
-						 * boolean result = ps.loginParent(p_username, p_password);
-						 * System.out.println("parent is "+result);
-						 */
+						
+						  System.out.println("Enter Username: ");
+						  String p_username = sc.next();
+						  System.out.println("Enter Password: "); 
+						  String p_password = sc.next();
+						  
+						  boolean result = ps.loginParent(p_username, p_password);
+						  System.out.println("parent is "+result);
+						   */
+						 
 					case 2:
 						System.out.println("Enter Username: ");
-						String p_username = sc.next();
+						String p_username1 = sc.next();
 						System.out.println("Enter Password: ");
-						String p_password = sc.next();
+						String p_password1 = sc.next();
 
-						boolean result = ps.loginParent(p_username, p_password);
-						if(result == true)
+						boolean result1 = ps.loginParent(p_username1, p_password1);
+						if(result1 == true)
 						{
 							logger.info("Parent login Dao stopped");
 							logger.info("Parent login Service stopped");
 							  System.out.println("1. View Tutor"); 
 							  System.out.println("2. View Bookings");
-							  System.out.println("3. Logout");
+							  System.out.println("3. View Ebook");
+							  System.out.println("4. Request Demo(Choose the View Tutor first)");
+							  System.out.println("5. Logout");
 							  
 							  System.out.println("Enter the choice number: ");
 							  
 							  int parent_choice2 = sc.nextInt();
 							  
+							  while(true)
+							  {
 							  switch(parent_choice2)
 							  {
 							  	case 1:
 							  		
+							  		List<Tutor> tutor = ps.viewTutor(p_username1);
+							  		
+							  		System.out.println();
+									Iterator i =  tutor.iterator();
+									
+									System.out.println("=============================== List of tutors near you ==============================");
+									while(i.hasNext())
+									{
+										System.out.println(i.next());
+									}
+									
+									System.out.println();
+									  System.out.println("1. View Tutor"); 
+									  System.out.println("2. View Bookings");
+									  System.out.println("3. View Ebook");
+									  System.out.println("4. Request Demo(Choose the View Tutor first)");
+									  System.out.println("5. Logout");
+									  
+									  
+									System.out.println("Enter the choice number: ");
+									  
+									parent_choice2 = sc.nextInt();
+									break;
+									
+							  	case 2: 
+							  		System.out.println("View Bookings");
+							  		break;
+							  	case 3:
+//							  		System.out.println("View Ebooks");
+							  		
+									
+									  List<Ebook> elst = ps.viewEbook(); 
+//									  System.out.println(elst);
+									 
+									
+									
+									
+									  Iterator i1 = elst.iterator();
+									  
+									  while(i1.hasNext())
+									  { 
+										  System.out.println(i1.next());
+									  }
+									 
+									 
+									 
+							  		System.out.println();
+							  		System.out.println("1. View Tutor"); 
+							  		System.out.println("2. View Bookings");
+							  		System.out.println("3. View Ebook");
+							  		System.out.println("4. Request Demo(Choose the View Tutor first)");
+							  		System.out.println("5. Logout");
+								  
+									  
+									System.out.println("Enter the choice number: ");
+									  
+									parent_choice2 = sc.nextInt();
+									break;
+							  	case 4:
+							  		
+							  		Parent parent= ps.getParent(p_username1);
+							  		System.out.println("Enter the tutor id to request demo: ");
+							  		int tutor_id = sc.nextInt();
+							  		System.out.println("Enter the subject: ");
+							  		String subject = sc.next();
+							  		System.out.println("Enter the date in DD/MM/YYYY format: ");
+							  		String date =sc.next();
+							  		System.out.println("Enter the time in HH:MM format(24 hours): ");
+							  		String time =sc.next();
+							  		
+							  		RequestTO requestto = new RequestTO(parent.getParentId(),tutor_id,subject,date,time);
+							  		
+							  		ps.requestDemo(requestto);
+							  		System.out.println("Request sent ");
+							  		System.out.println();
+							  		System.out.println("1. View Tutor"); 
+							  		System.out.println("2. View Bookings");
+							  		System.out.println("3. View Ebook");
+							  		System.out.println("4. Request Demo(Choose the View Tutor first)");
+							  		System.out.println("5. Logout");
+								  
+									  
+									System.out.println("Enter the choice number: ");
+									  
+									parent_choice2 = sc.nextInt();
+									break;
+							  	case 5:
+							  		ps.logout();
+							  		break;
+							  	default:
+							  		System.out.println("Invalid choice");
+							  		break;
+									
+							  	}
 							  }
 						}
 						else
@@ -295,9 +421,6 @@ public class Main {
 				break;
 				
 				
-			
-				
-				
 			default: 
 				System.out.println("Invalid choice");
 				break;
@@ -307,4 +430,3 @@ public class Main {
 			
 		}
 	}
-

@@ -7,4 +7,5 @@ public interface EbookDAO {
 	public Ebook addEbooks(Ebook ebook);
 	public Ebook updateEbook(Ebook ebook);
 	public List<Ebook> viewEbook(String title);
+	public List<Ebook> viewEbook();
 }

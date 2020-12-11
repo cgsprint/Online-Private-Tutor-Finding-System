@@ -25,5 +25,13 @@ public class RequestDAOImpl implements RequestDAO{
 		return list;
 		
 	}
+	@Override
+	public Request requestDemo(Request request) {
+		
+		emanager.getTransaction().begin();
+		emanager.persist(request);
+		emanager.getTransaction().commit();
+		return request;
+	}
 
 }

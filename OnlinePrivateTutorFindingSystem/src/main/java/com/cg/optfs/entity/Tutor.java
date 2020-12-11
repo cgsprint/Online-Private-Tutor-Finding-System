@@ -74,6 +74,13 @@ public class Tutor {
 	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
+
+	@Override
+	public String toString() {
+		return "Tutor [id=" + id + ", name=" + name + ", subject=" + subject + ", phonenumber=" + phonenumber
+				+ ", address=" + address + ", qualification=" + qualification + "]";
+	}
+	
 	
 	
 }

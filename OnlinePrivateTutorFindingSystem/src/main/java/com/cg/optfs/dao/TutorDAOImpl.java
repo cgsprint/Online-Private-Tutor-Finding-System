@@ -50,4 +50,26 @@ public class TutorDAOImpl implements TutorDAO {
 
 	}
 
+	@Override
+	public boolean loginTutor(String tutor_username, String tutor_password) {
+		
+		return false;
+	}
+
+	/*
+	 * @Override public String getAddress(String p_username) {
+	 * 
+	 * 
+	 * return null; }
+	 */
+
+	@Override
+	public List<Tutor> viewTutor(String addr) {
+		
+		TypedQuery<Tutor> query = manager.createQuery("select t from Tutor t where t.address =:address",Tutor.class);
+		query.setParameter("address", addr);
+		List<Tutor> tlst = query.getResultList();
+		return tlst;
+	}
+
 }
