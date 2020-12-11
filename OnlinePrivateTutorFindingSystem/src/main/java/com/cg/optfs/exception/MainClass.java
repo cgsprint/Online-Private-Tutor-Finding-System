@@ -1,6 +1,11 @@
 package com.cg.optfs.exception;
 
 import java.util.Scanner;
+class NullPointerException extends Exception{
+	public NullPointerException() {
+		super();
+	}
+}
 
 public class MainClass extends Exception {
 	
@@ -20,13 +25,17 @@ public class MainClass extends Exception {
 		
 		try
 		{
-			if(username==" " && password==" ")
+			if(username.equals("") && password.equals(""))
 			
 				throw new NullPointerException();
-			}
-			catch(NullPointerException e)
+			else if(password.length()<=8) 
+				throw new Exception();
+			
+		}catch(NullPointerException e)
 			{
-				System.out.println("Please enter valid username and password");
+				System.out.println("Please enter valid username and password "+e);
+			}catch(Exception e) {
+				System.out.println("Please enter password of more than 8 charachters "+e);
 			}
 	
 		
