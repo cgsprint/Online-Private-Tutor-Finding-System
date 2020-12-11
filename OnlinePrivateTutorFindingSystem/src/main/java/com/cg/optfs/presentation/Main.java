@@ -14,6 +14,8 @@ import com.cg.optfs.entity.Request;
 import com.cg.optfs.entity.RequestTO;
 import com.cg.optfs.entity.Tutor;
 import com.cg.optfs.entity.TutorTO;
+//import com.cg.optfs.exception.NullPointerException;
+import com.cg.optfs.exception.RuntimeException;
 import com.cg.optfs.service.AdminAuthImplService;
 import com.cg.optfs.service.AdminAuthService;
 import com.cg.optfs.service.AdminService;
@@ -57,7 +59,42 @@ public class Main {
 				String username = sc.next();
 				
 				System.out.println("Enter the password:");
+				
 				String password = sc.next();
+                
+				 try
+					{
+					if(username.equals("") || password.equals(""))
+					
+						throw new NullPointerException();
+					else if(password.length()<8) 
+						throw new Exception();
+					
+				}catch(NullPointerException e)
+					{
+						System.out.println("Please enter valid username and password "+e);
+						
+						System.out.println("Enter the username:");
+
+						 username = sc.next();
+						
+						System.out.println("Enter the password:");
+						
+						 password = sc.next();
+					}catch(Exception e) {
+						System.out.println("Please enter password of more than 8 charachters "+e);
+						
+						System.out.println("Enter the username:");
+
+						 username = sc.next();
+						
+						System.out.println("Enter the password:");
+						
+						 password = sc.next();
+					}
+			
+				
+				
 				
 				boolean res = as.loginAdmin(username, password);
 				logger.info("Admin login Dao stopped");
@@ -79,6 +116,7 @@ public class Main {
 				  	{ 
 				  		case 1:
 				  			
+				  			 
 				  			System.out.println("Enter Name: ");
 //							tutor.setName(sc.next());
 				  			String name = sc.next();
@@ -87,12 +125,12 @@ public class Main {
 				  			String username1=sc.next();
 				  			
 				  			System.out.println("Enter password: ");
-				  			String pass=sc.next();
+				  		    String pass=sc.next();
 
 				  			
 				  			System.out.println("Enter Subject: ");
 //						  	tutor.setSubject(sc.next());
-							String subject = sc.next();
+						    String subject = sc.next();
 //						  	sc.nextLine();
 							System.out.println("Enter Phone no : ");
 //						  	tutor.setPhonenumber(sc.next());
@@ -101,11 +139,13 @@ public class Main {
 //						  	sc.nextLine();
 						 	System.out.println("Enter address: ");
 //						 	tutor.setAddress(sc.next());
-						 	String addr = sc.next();
+						    String addr = sc.next();
 						 	
 						 	System.out.println("Enter Qualification: ");
 //						 	tutor.setQualification(sc.next());
 						 	String qualification = sc.next();
+						 	
+									
 						 	
 						 	TutorTO tutorto = new TutorTO(name, subject, phoneno, addr, qualification,username1,pass);
 //						 	Tutor tut = as.addTutor(tutor);
@@ -222,15 +262,6 @@ public class Main {
 						case 1:
 							//View demo request code
 							System.out.println("View Demo request");
-							List<Request> request = ts.viewRequest(t_username);
-							System.out.println();
-							Iterator i =  request.iterator();
-							
-							System.out.println("=============================== List of Demo Request to tutor ==============================");
-							while(i.hasNext())
-							{
-								System.out.println(i.next());
-							}
 							
 //							List<Request> rlst = ts.viewRequest(request, tutorid)
 							break;
@@ -289,9 +320,25 @@ public class Main {
 						System.out.println("Enter Address: ");
 //						parent.setAddress(sc.next());
 						String addr = sc.next();
+						String regex="^[_|a-zA-Z][0-9]+@[.a-zA-Z]{2,4}$";
+						try {
+							
+							if(first_name.equals("") && last_name.equals("") && uname.equals("") && pass.equals("") && mobileno.equals("") && addr.equals("") && email.equals("")) {
+								throw new NullPointerException();
+								
+							}else if(!email.matches(regex)) {
+								throw new RuntimeException();
+								
+							}
+						}catch(NullPointerException e) {
+							System.out.println("All the information has to be filled"+e);
+						}catch(RuntimeException e) {
+							System.out.println("Enter correct Email "+e);
+						}
 
 						ParentTO parentto = new ParentTO(first_name, last_name, uname, pass, mobileno, email, addr);
 						Parent pt = ps.addParent(parentto);
+						//ps.addParent(parentto);
 						
 						logger.info("Parent addParent Dao stopped");
 						logger.info("Parent addParent Service stopped");
@@ -320,6 +367,30 @@ public class Main {
 						String p_username1 = sc.next();
 						System.out.println("Enter Password: ");
 						String p_password1 = sc.next();
+						 try
+							{
+							if(p_username1.equals("") || p_password1.equals(""))
+							
+								throw new NullPointerException();
+							else if(p_password1.length()<8) 
+								throw new Exception();
+							
+						}catch(NullPointerException e)
+							{
+								System.out.println("Please enter valid username and password "+e);
+								
+								System.out.println("Enter Username: ");
+								 p_username1 = sc.next();
+								System.out.println("Enter Password: ");
+								 p_password1 = sc.next();
+							}catch(Exception e) {
+								System.out.println("Please enter password of more than 8 charachters "+e);
+								System.out.println("Enter Username: ");
+							    p_username1 = sc.next();
+								System.out.println("Enter Password: ");
+								 p_password1 = sc.next();
+							}
+					
 
 						boolean result1 = ps.loginParent(p_username1, p_password1);
 						if(result1 == true)
