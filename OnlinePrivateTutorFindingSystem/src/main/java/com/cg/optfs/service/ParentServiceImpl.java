@@ -73,8 +73,8 @@ public class ParentServiceImpl implements ParentService {
 	@Override
 	public Parent getParent(String p_username1) {
 		
-		
 		return pdao.getParent(p_username1);
+		
 	}
 
 	@Override

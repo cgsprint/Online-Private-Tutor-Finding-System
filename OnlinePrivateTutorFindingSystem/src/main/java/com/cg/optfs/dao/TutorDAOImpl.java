@@ -9,8 +9,6 @@ import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
 
-import com.cg.optfs.entity.Tutor;
-
 public class TutorDAOImpl implements TutorDAO {
 	final static Logger logger = Logger.getLogger(TutorDAOImpl.class);
 	EntityManager manager;
@@ -53,6 +51,15 @@ public class TutorDAOImpl implements TutorDAO {
 	@Override
 	public boolean loginTutor(String tutor_username, String tutor_password) {
 		
+		logger.info("Tutor DAO login started");
+		TypedQuery<Tutor> query=manager.createQuery("select tt from Tutor tt where tt.username = :username AND tt.password = :password",Tutor.class);
+		 query.setParameter("username",tutor_username);
+		 query.setParameter("password",tutor_password);
+		 List<Tutor> results = query.getResultList();
+		if(!results.isEmpty())
+		{
+			return true;
+		}
 		return false;
 	}
 
@@ -70,6 +77,15 @@ public class TutorDAOImpl implements TutorDAO {
 		query.setParameter("address", addr);
 		List<Tutor> tlst = query.getResultList();
 		return tlst;
+	}
+
+
+	public Tutor getTutor(String t_username) {
+		// TODO Auto-generated method stub
+		TypedQuery<Tutor> query = manager.createQuery("select t from Tutor t where t.username =:username",Tutor.class);
+		query.setParameter("username", t_username);
+		Tutor tutor = query.getSingleResult();
+		return tutor;
 	}
 
 }

@@ -46,4 +46,10 @@ public class TutorServiceImpl implements TutorService {
 		return tdao.loginTutor(tutor_username,tutor_password);
 	}
 
+	@Override
+	public Tutor getTutor(String t_username) {
+		// TODO Auto-generated method stub
+		return tdao.getTutor(t_username);
+	}
+
 }

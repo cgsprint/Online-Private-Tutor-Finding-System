@@ -51,7 +51,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public Tutor addTutor(TutorTO tutorto) {
 		logger.info("Admin addTutor service started");
-		Tutor tutor = new Tutor(tutorto.getName(),tutorto.getSubject(),tutorto.getPhonenumber(),tutorto.getAddress(),tutorto.getQualification());
+		Tutor tutor = new Tutor(tutorto.getName(),tutorto.getSubject(),tutorto.getPhonenumber(),tutorto.getAddress(),tutorto.getQualification(),tutorto.getUsername(),tutorto.getPassword());
 		return adao.addTutor(tutor);
 	}
 	@Override

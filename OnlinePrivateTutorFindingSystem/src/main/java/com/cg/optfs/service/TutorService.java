@@ -12,6 +12,9 @@ public interface TutorService {
 	public List<BookedTutor> ViewBookings(BookedTutor bookings,int tutorid);
 	public Tutor updateProfile(Tutor tutor);
 	public boolean loginTutor(String tutor_username, String tutor_password);
+	
+	//public Tutor getTutor(String t_username);
+	public Tutor getTutor(String t_username);
 
 //	public List<>
 

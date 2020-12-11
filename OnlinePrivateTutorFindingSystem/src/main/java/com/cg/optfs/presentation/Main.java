@@ -83,7 +83,14 @@ public class Main {
 //							tutor.setName(sc.next());
 				  			String name = sc.next();
 //							sc.next();
-							System.out.println("Enter Subject: ");
+				  			System.out.println("Enter username: ");
+				  			String username1=sc.next();
+				  			
+				  			System.out.println("Enter password: ");
+				  			String pass=sc.next();
+
+				  			
+				  			System.out.println("Enter Subject: ");
 //						  	tutor.setSubject(sc.next());
 							String subject = sc.next();
 //						  	sc.nextLine();
@@ -100,7 +107,7 @@ public class Main {
 //						 	tutor.setQualification(sc.next());
 						 	String qualification = sc.next();
 						 	
-						 	TutorTO tutorto = new TutorTO(name, subject, phoneno, addr, qualification);
+						 	TutorTO tutorto = new TutorTO(name, subject, phoneno, addr, qualification,username1,pass);
 //						 	Tutor tut = as.addTutor(tutor);
 						 	as.addTutor(tutorto);
 						 	logger.info("Tutor addTutor Dao stopped");
@@ -193,15 +200,16 @@ public class Main {
 				
 				System.out.println("Enter the username:");
 
-				String tutor_username = sc.next();
+				String t_username = sc.next();
 				
 				System.out.println("Enter the password:");
-				String tutor_password = sc.next();
+				String t_password = sc.next();
 				
-				boolean tutor_res = ts.loginTutor(tutor_username, tutor_password);
+				boolean tutor_res = ts.loginTutor(t_username, t_password);
 				
 				if(tutor_res)
 				{
+					Tutor tutor=ts.getTutor(t_username);
 					System.out.println("1. View Demo requests");
 					System.out.println("2. View Bookings");
 					System.out.println("3. Update profile");
@@ -231,7 +239,11 @@ public class Main {
 							
 					}
 				}
-				
+				else
+				{
+					System.out.println("Invalid Credentials for tutor");2
+					
+				}
 				
 				
 				break;

@@ -11,5 +11,6 @@ public interface TutorDAO {
 	public boolean loginTutor(String tutor_username, String tutor_password);
 //	public String getAddress(String p_username);
 	public List<Tutor> viewTutor(String addr);
+	public Tutor getTutor(String t_username);
 
 }

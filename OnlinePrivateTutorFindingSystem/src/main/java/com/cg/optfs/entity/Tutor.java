@@ -17,19 +17,23 @@ public class Tutor {
 	@Column(name = "NAME")
 	private String name;
 	@Column(name = "SUBJECT")
-	public  String subject;
+	public String subject;
     @Column(name = "PHONENUMBER")
 	public String phonenumber;
 	@Column(name = "ADDRESS")
 	private String address;
 	@Column(name = "QUALIFICATON")
 	private String qualification;
+	@Column(name = "USERNAME")
+	private String username;
+	@Column(name = "PASSWORD")
+	private String password;
 	
 	public Tutor() {
 		
 	}
 	
-	public Tutor( String name, String subject, String phonenumber, String address, String qualification) {
+	public Tutor( String name, String subject, String phonenumber, String address, String qualification,String username,String password) {
 		super();
 //		this.id = id;
 		this.name = name;
@@ -37,6 +41,8 @@ public class Tutor {
 		this.phonenumber = phonenumber;
 		this.address = address;
 		this.qualification = qualification;
+		this.username=username;
+		this.password=password;
 	}
 	public int getId() {
 		return id;
@@ -47,6 +53,22 @@ public class Tutor {
 	public String getName() {
 		return name;
 	}
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -78,7 +100,7 @@ public class Tutor {
 	@Override
 	public String toString() {
 		return "Tutor [id=" + id + ", name=" + name + ", subject=" + subject + ", phonenumber=" + phonenumber
-				+ ", address=" + address + ", qualification=" + qualification + "]";
+				+ ", address=" + address + ", qualification=" + qualification + ", username=" + username + "]";
 	}
 	
 	

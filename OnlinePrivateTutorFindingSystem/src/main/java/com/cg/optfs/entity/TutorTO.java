@@ -9,13 +9,15 @@ public class TutorTO {
 	public String phonenumber;
 	private String address;
 	private String qualification;
+	private String username;
+	private String password;
 	
 	public TutorTO() {
 		
 	}
 	
 	
-	public TutorTO( String name, String subject, String phonenumber, String address, String qualification) {
+	public TutorTO( String name, String subject, String phonenumber, String address, String qualification,String username,String password) {
 		super();
 //		this.id = id;
 		this.name = name;
@@ -23,6 +25,8 @@ public class TutorTO {
 		this.phonenumber = phonenumber;
 		this.address = address;
 		this.qualification = qualification;
+		this.username=username;
+		this.password=password;
 	}
 	
 	/*
@@ -59,10 +63,30 @@ public class TutorTO {
 		this.qualification = qualification;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
 	@Override
 	public String toString() {
 		return "TutorTO [id=" + id + ", name=" + name + ", subject=" + subject + ", phonenumber=" + phonenumber
-				+ ", address=" + address + ", qualification=" + qualification + "]";
+				+ ", address=" + address + ", qualification=" + qualification + ", username=" + username + "]";
 	}
 
 	
